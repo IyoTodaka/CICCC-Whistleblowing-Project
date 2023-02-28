@@ -1,20 +1,7 @@
-import { useEffect } from 'react'
-import './App.css'
+import React from "react";
 
-function App() {
+const App = () => {
+  return <h1 class="text-3xl font-bold underline">Hello world!</h1>;
+};
 
-  useEffect(() => {
-    const connectCheck = async () => {
-      const response = await fetch('http://localhost:8000/api')
-      const result = await response.json()
-      console.log(result);
-    }
-    connectCheck()
-  }, [])
-
-  return (
-    <>App</>
-  )
-}
-
-export default App
+export default App;
