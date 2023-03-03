@@ -10,6 +10,5 @@ export const userInfo = [
         email: "jason@gmail.com",
         passwort: "jsonPpassword",
         role: "whistleblower",
-    },
+    }
 ]
-
