@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import LoginImg from "../../Assets/Top.jpg";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -7,8 +7,14 @@ const UserLogin = () => {
   const userInput = useRef(null);
   const passwordInput = useRef(null);
 
-  const [usernameErr, setUsernameErr] = useState("");
-  const [passwordErr, setPasswordErr] = useState("");
+  const [usernameErr, setUsernameErr] = useState(null);
+  const [passwordErr, setPasswordErr] = useState(null);
+
+  useEffect(() => {
+    if (usernameErr === "" && passwordErr === "") {
+      alert("Sign up successful!");
+    }
+  }, [usernameErr, passwordErr]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

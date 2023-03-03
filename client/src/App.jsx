@@ -11,6 +11,7 @@ const App = () => {
       {/* <UserLogin /> */}
       {/* <UserSignup /> */}
       {/* <Navbar /> */}
+      {/* これはただの仮だようううう！！！！！ */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<UserLogin />} />

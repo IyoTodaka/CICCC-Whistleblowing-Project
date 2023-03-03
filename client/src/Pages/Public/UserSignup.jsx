@@ -1,6 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SignupImg from "../../Assets/Top.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  validateUsername,
+  validatePassword,
+  validateConfirmPassword,
+} from "../../util/validators";
 
 const UserSignup = () => {
   const navigate = useNavigate();
@@ -8,9 +13,9 @@ const UserSignup = () => {
   const passwordInput = useRef(null);
   const confirmPasswordInput = useRef(null);
 
-  const [usernameErr, setUsernameErr] = useState("");
-  const [passwordErr, setPasswordErr] = useState("");
-  const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
+  const [usernameErr, setUsernameErr] = useState(null);
+  const [passwordErr, setPasswordErr] = useState(null);
+  const [confirmPasswordErr, setConfirmPasswordErr] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,22 +27,26 @@ const UserSignup = () => {
     const password = passwordInput.current.value;
     const confirmPassword = confirmPasswordInput.current.value;
 
-    //validation
-    let error = false;
+    //validateのコンポーネントの引数にusernameを渡して判定している
+    const userNameHintValidate = validateUsername(username);
+    console.log(userNameHintValidate);
+    setUsernameErr(
+      userNameHintValidate
+        ? "Username requires minimum length of 8 characters"
+        : ""
+    );
 
-    if (username === "") {
-      error = true;
-      setUsernameErr("Please enter your name");
-    }
-    if (password === "") {
-      error = true;
-      setPasswordErr("Please enter your password");
-    }
+    const passwordHintValidate = validatePassword(password);
+    setPasswordErr(passwordHintValidate ? passwordHintValidate : "");
 
-    if (confirmPassword === "") {
-      error = true;
-      setConfirmPasswordErr("Please enter your password");
-    }
+    const confirmPasswordHintValidate = validateConfirmPassword(
+      confirmPassword,
+      password
+    );
+    console.log(confirmPasswordHintValidate);
+    setConfirmPasswordErr(
+      confirmPasswordHintValidate ? confirmPasswordHintValidate : ""
+    );
 
     try {
       // console.log(username);
@@ -69,18 +78,18 @@ const UserSignup = () => {
             </h1>
 
             <form className="mt-6" onSubmit={handleSubmit}>
-              <div>
-                <label className="block text-gray-700">Username</label>
-                <input
-                  ref={userInput}
-                  type="username"
-                  name="password"
-                  placeholder="Enter Username"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                />
-              </div>
+              <label className="block text-gray-700">Username</label>
+
+              <input
+                ref={userInput}
+                type="username"
+                name="password"
+                placeholder="Enter Username"
+                className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              />
+
               {usernameErr !== "" ? (
-                <p className="text-xs text-red-600">Enter username</p>
+                <p className="text-xs text-red-600">{usernameErr}</p>
               ) : (
                 ""
               )}
@@ -92,12 +101,11 @@ const UserSignup = () => {
                   type="password"
                   name="password"
                   placeholder="Enter Password"
-                  //   minLength="6"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 />
               </div>
               {passwordErr !== "" ? (
-                <p className="text-xs text-red-600">Enter password</p>
+                <p className="text-xs text-red-600">{passwordErr}</p>
               ) : (
                 ""
               )}
@@ -108,12 +116,11 @@ const UserSignup = () => {
                   type="confirm password"
                   name="confirm password"
                   placeholder="Enter Confirm password"
-                  //   minLength="6"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 />
               </div>
               {confirmPasswordErr !== "" ? (
-                <p className="text-xs text-red-600">Enter Confirm Password</p>
+                <p className="text-xs text-red-600">{confirmPasswordErr}</p>
               ) : (
                 ""
               )}
