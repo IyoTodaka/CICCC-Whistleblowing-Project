@@ -2,7 +2,8 @@ import React from 'react'
 
 const UserHome = () => {
   return (
-    <UserDashboard />
+    // <UserDashboard />
+    <div>UserHome</div>
   )
 }
 

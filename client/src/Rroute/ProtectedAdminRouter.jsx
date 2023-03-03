@@ -1,21 +1,18 @@
 import { lazy } from 'react'
+import MainLayout from '../Components/AdminHome/MainLayout'
 
-const AdminHome = lazy(() => import('../Pages/Protected/AdminHome'))
+const AdminDashboard = lazy(() => import('../Pages/Protected/AdminDashboard'))
+const AdminReportList = lazy(() => import('../Pages/Protected/AdminReportList'))
+const AdminAgentList = lazy(() => import('../Pages/Protected/AdminAgentList'))
+const AdminUserList = lazy(() => import('../Pages/Protected/AdminUserList'))
 
 export const ProtectedAdminRoutes = [
-    {path: "/admin/home", element: <AdminHome />},
-    // {path: "admin/home", element: <Home />},
-    // {path: "admin/reports", element: <ReportList />},
-    // {path: "admin/agentlist", element: <AgentList />},
-    // {path: "admin/userlist", element: <AdminUserList />},
+    {path: "/admin", element: <MainLayout />, children: [
+        {path: "home", element: <AdminDashboard />},    
+        {path: "reportlist", element: <AdminReportList />},
+        {path: "agentlist", element: <AdminAgentList />},
+        {path: "userlist", element: <AdminUserList />},
+    ]}
 ]
 
-// export const ProtectedRoutes = createBrowserRouter([
-//   {path: "/admin", element: <ProtectedRouter />, children: [
-//     {path: "home", element: <AdminHome />},
-//     // {path: "admin/home", element: <Home />},
-//     // {path: "admin/reports", element: <ReportList />},
-//     // {path: "admin/agentlist", element: <AgentList />},
-//     // {path: "admin/userlist", element: <AdminUserList />},
-//   ]}  
-// ])
+

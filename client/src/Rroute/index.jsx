@@ -1,16 +1,21 @@
-import { Suspense } from "react";
-
+import { Suspense, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { ProtectedAdminRoutes } from "./ProtectedAdminRouter";
 import { ProtectedUserRoutes } from "./ProtectedUserRouter"
 import { PublicRoutes } from '../Rroute/PublicRoute'
 
-
 const AppRoute = () => {
+  const user = useSelector(state => state.userInfo.user)
   //user data from redux store
-  const user = {userId: "6872347198", role: null}
+  // const user = {userId: "6872347198", role: "admin"}
+  // const user = {userId: "6872347198", role: null}
   
+  useEffect(() => {
+    console.log(user);
+  }, [])
+
   const route = user && (user.role === "admin") ? ProtectedAdminRoutes: ProtectedUserRoutes;
   const routeElem = createBrowserRouter([...route, ...PublicRoutes])
 
