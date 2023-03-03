@@ -7,3 +7,5 @@ const AdminReportList = () => {
 }
 
 export default AdminReportList
+
+//https://www.tailwindtoolbox.com/components/responsive-table

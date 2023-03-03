@@ -8,15 +8,13 @@ import { PublicRoutes } from '../Rroute/PublicRoute'
 
 const AppRoute = () => {
   const user = useSelector(state => state.userInfo.user)
-  //user data from redux store
-  // const user = {userId: "6872347198", role: "admin"}
-  // const user = {userId: "6872347198", role: null}
   
   useEffect(() => {
     console.log(user);
   }, [])
 
   const route = user && (user.role === "admin") ? ProtectedAdminRoutes: ProtectedUserRoutes;
+  
   const routeElem = createBrowserRouter([...route, ...PublicRoutes])
 
   return (
@@ -36,5 +34,5 @@ const AppRoute = () => {
 export default AppRoute
 
 
-//https://github1s.dev/alan2207/bulletproof-react/blob/HEAD/src/routes/protected.tsx
-//https://github1s.com/iamshaunjp/MERN-Auth-Tutorial/blob/lesson-17/frontend/src/pages/Signup.js
+// https://github1s.dev/alan2207/bulletproof-react/blob/HEAD/src/routes/protected.tsx
+// https://github1s.com/iamshaunjp/MERN-Auth-Tutorial/blob/lesson-17/frontend/src/pages/Signup.js
