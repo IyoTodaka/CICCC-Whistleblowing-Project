@@ -17,26 +17,19 @@ export const validatePassword = (password) => {
   if (!password.trim().match(/[0-9]/g)) {
     return "Password requires numerical values";
   }
-  //validate special characters
-  //✅ここがうまくいっていない
-  // if (
-  //   !password
-  //     .trim()
-  //     .match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)
-  // ) {
-  //   return "Password requires special character(s)";
-  // }
-  //validate password length
   if (password.trim().length < 8) {
     return "Password requires minimum length of 8 characters";
   }
 
+  if (!password.trim().match(/[?!@#$%^&*]/g)) {
+    return "Password requires a special character";
+  }
   return null;
 };
 
 export const validateConfirmPassword = (confirmPassword, password) => {
   if (confirmPassword === "") {
-    return "Please enter your confirmPassword";
+    return "Please enter your confirm password";
   }
 
   if (confirmPassword !== password) {

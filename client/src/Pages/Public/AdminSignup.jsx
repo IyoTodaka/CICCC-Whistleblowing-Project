@@ -8,7 +8,7 @@ import {
   validateConfirmPassword,
 } from "../../util/validators";
 
-const UserSignup = () => {
+const AdminSignup = () => {
   const navigate = useNavigate();
   const userInput = useRef(null);
   const passwordInput = useRef(null);
@@ -70,10 +70,13 @@ const UserSignup = () => {
             <div className="justify-center ml-auto flex mb-3">
               <img src={Logo} alt="CICCC_Logo" className="w-20 h-20 " />
             </div>
-            <div className="text-2xl font-extrabold text-center  text-blue font-second">
+            <div className="text-2xl font-extrabold text-center text-blue font-second">
               Whisleblowing App
             </div>
-            <h3 className="text-md font-bold leading-tight mt-6 text-left">
+            <div className="text-xl font-extrabold text-center text-blueSecond font-second">
+              Admin
+            </div>
+            <h3 className="text-md font-bold leading-tight mt-6 text-left ">
               Sign up
             </h3>
 
@@ -133,8 +136,7 @@ const UserSignup = () => {
             </form>
             <p className="mt-8"> Already have an account?</p>
             <Link
-              to="/"
-              href="#"
+              to="/admin/login"
               className="text-blue-500 hover:opacity-70 border-b border-blue"
             >
               Login
@@ -146,4 +148,4 @@ const UserSignup = () => {
   );
 };
 
-export default UserSignup;
+export default AdminSignup;
