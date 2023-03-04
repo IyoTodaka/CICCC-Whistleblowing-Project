@@ -1,11 +1,22 @@
 import { Outlet } from 'react-router-dom'
+import HamburgerMenu from './HamburgerMenu'
 import SideNav from './SideNav'
 
 const MainLayout = () => {
   return (
-    <SideNav>
-        <Outlet />
-    </SideNav>
+    <>
+      <div className='hidden md:block'>
+        <SideNav>
+          <Outlet />
+        </SideNav>
+      </div>
+      <div className='md:hidden'>
+        <HamburgerMenu>
+          <Outlet />
+        </HamburgerMenu>
+      </div>
+
+    </>
   )
 }
 

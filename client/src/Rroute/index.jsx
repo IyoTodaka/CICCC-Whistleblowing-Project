@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -8,11 +8,6 @@ import { PublicRoutes } from "../Rroute/PublicRoute";
 
 const AppRoute = () => {
   const user = useSelector((state) => state.userInfo.user);
-
-  useEffect(() => {
-    console.log(user);
-  }, []);
-
   
   let route;
 
