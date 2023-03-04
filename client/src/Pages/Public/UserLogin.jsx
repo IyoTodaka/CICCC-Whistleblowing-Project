@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import LoginImg from "../../Assets/Top.jpg";
 import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const UserLogin = () => {
+  const user = useSelector(state => state.userInfo.user)
   const navigate = useNavigate();
   const userInput = useRef(null);
   const passwordInput = useRef(null);
@@ -15,6 +17,14 @@ const UserLogin = () => {
       alert("Sign up successful!");
     }
   }, [usernameErr, passwordErr]);
+
+  useEffect(() => {
+    if(user.role === "admin"){
+      navigate("/admin/home")
+    }else if(user.role === "whistleblower"){
+      navigate("/home")
+    }
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -13,8 +13,16 @@ const AppRoute = () => {
     console.log(user);
   }, []);
 
-  const route =
-    user && user.role === "admin" ? ProtectedAdminRoutes : ProtectedUserRoutes;
+  
+  let route;
+
+  if(user.role === "admin"){
+    route = ProtectedAdminRoutes
+  }else if(user.role === "whistleblower"){
+    route = ProtectedUserRoutes
+  }else{
+    route = PublicRoutes
+  }
 
   const routeElem = createBrowserRouter([...route, ...PublicRoutes]);
 
