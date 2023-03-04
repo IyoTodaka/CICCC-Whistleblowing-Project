@@ -5,10 +5,13 @@ module.exports = {
     extend: {
       colors: {
         blue: "#283A8A",
-        blueSecond: "#8B9BB8",
+        blueSecond: "#A1B7E4",
         textBase: "#333",
       },
+      fontFamily: {
+        second: ["Roboto Slab", "serif"],
+      },
     },
+    plugins: [],
   },
-  plugins: [],
 };

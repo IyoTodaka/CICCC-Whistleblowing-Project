@@ -22,14 +22,14 @@ export const validatePassword = (password) => {
   }
 
   if (!password.trim().match(/[?!@#$%^&*]/g)) {
-    return "Password requires special character(s)";
+    return "Password requires a special character";
   }
   return null;
 };
 
 export const validateConfirmPassword = (confirmPassword, password) => {
   if (confirmPassword === "") {
-    return "Please enter your confirmPassword";
+    return "Please enter your confirm password";
   }
 
   if (confirmPassword !== password) {

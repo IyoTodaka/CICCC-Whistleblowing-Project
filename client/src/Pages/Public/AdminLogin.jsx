@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import LoginImg from "../../Assets/Top.jpg";
+import Logo from "../../Assets/Logo.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const UserLogin = () => {
+const AdminLogin = () => {
   const user = useSelector((state) => state.userInfo.user);
   const navigate = useNavigate();
   const userInput = useRef(null);
@@ -46,9 +47,10 @@ const UserLogin = () => {
     }
 
     try {
-      // console.log(username);
-      // console.log(password);
+      //ここでBackendのAPI(エンドポイント)を呼んでPOSTする
       // navigate("/home");
+      //awaitの中のparmamsが送られる
+      //const res = await authApi.register({username, password})
     } catch (err) {
       const errors = err.data.errors;
       console.log(errors);
@@ -64,13 +66,18 @@ const UserLogin = () => {
 
         <div className="bg-white w-full my-4 md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
           <div className="w-full h-100">
-            <div className="text-5xl font-extrabold text-center text-blue">
-              CICCC
+            <div className="justify-center ml-auto flex mb-3">
+              <img src={Logo} alt="CICCC_Logo" className="w-20 h-20 " />
             </div>
-            <div className="text-2xl font-extrabold text-center  text-blue">
+            <div className="text-2xl font-extrabold text-center text-blue font-second">
               Whisleblowing App
             </div>
-            <h3 className="text-md font-bold leading-tight mt-6 text-left">Admin Log in</h3>
+            <div className="text-xl font-extrabold text-center text-blueSecond font-second">
+              Admin
+            </div>
+            <h3 className="text-md font-bold leading-tight mt-6 text-left ">
+              Log in
+            </h3>
 
             <form className="mt-6" onSubmit={handleSubmit}>
               <div>
@@ -113,7 +120,7 @@ const UserLogin = () => {
             </form>
             <p className="mt-8">You don't have an account yet?</p>
             <Link
-              to="/signup"
+              to="/admin/signup"
               className="text-blue-500 hover:opacity-70 border-b border-blue"
             >
               Create an account
@@ -125,4 +132,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default AdminLogin;

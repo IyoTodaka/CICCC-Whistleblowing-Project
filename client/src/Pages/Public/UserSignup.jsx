@@ -70,7 +70,7 @@ const UserSignup = () => {
             <div className="justify-center ml-auto flex mb-3">
               <img src={Logo} alt="CICCC_Logo" className="w-20 h-20 " />
             </div>
-            <div className="text-2xl font-extrabold text-center  text-blue">
+            <div className="text-2xl font-extrabold text-center  text-blue font-second">
               Whisleblowing App
             </div>
             <h3 className="text-md font-bold leading-tight mt-6 text-left">
@@ -113,7 +113,7 @@ const UserSignup = () => {
                 <label className="block text-gray-700">Confirm Password</label>
                 <input
                   ref={confirmPasswordInput}
-                  type="confirm password"
+                  type="password"
                   name="confirm password"
                   placeholder="Enter Confirm password"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
