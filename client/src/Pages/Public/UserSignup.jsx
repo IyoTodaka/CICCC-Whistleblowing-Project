@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import SignupImg from "../../Assets/Top.jpg";
+import Logo from "../../Assets/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import {
   validateUsername,
@@ -27,7 +28,6 @@ const UserSignup = () => {
     const password = passwordInput.current.value;
     const confirmPassword = confirmPasswordInput.current.value;
 
-    //validateのコンポーネントの引数にusernameを渡して判定している
     const userNameHintValidate = validateUsername(username);
     console.log(userNameHintValidate);
     setUsernameErr(
@@ -67,15 +67,15 @@ const UserSignup = () => {
 
         <div className="bg-white w-full my-4 md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
           <div className="w-full h-100">
-            <div className="text-6xl font-extrabold text-center text-blue">
-              CICCC
+            <div className="justify-center ml-auto flex mb-3">
+              <img src={Logo} alt="CICCC_Logo" className="w-20 h-20 " />
             </div>
-            <div className="text-3xl font-extrabold text-center  text-blue">
+            <div className="text-2xl font-extrabold text-center  text-blue">
               Whisleblowing App
             </div>
-            <h1 className="text-xl md:text-2xl leading-tight mt-6 text-center">
+            <h3 className="text-md font-bold leading-tight mt-6 text-left">
               Sign up
-            </h1>
+            </h3>
 
             <form className="mt-6" onSubmit={handleSubmit}>
               <label className="block text-gray-700">Username</label>

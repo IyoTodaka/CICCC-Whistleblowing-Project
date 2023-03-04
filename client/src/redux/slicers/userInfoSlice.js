@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit"
 
 export const useInfoSlice = createSlice({
     name: "userInfo",
-    initialState: { user: { role: "admin" } },
+    // initialState: { user: { role: "admin" } },
     // initialState: { user: { role: "whistleblower" } },
-    // initialState: { user: { role: null } },
+    initialState: { user: { role: null } },
 
     reducers: {
         setUser: (state, action) => {

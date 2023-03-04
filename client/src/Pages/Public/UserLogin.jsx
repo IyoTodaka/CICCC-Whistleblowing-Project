@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import LoginImg from "../../Assets/Top.jpg";
+import Logo from "../../Assets/Logo.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const UserLogin = () => {
-  const user = useSelector(state => state.userInfo.user)
+  const user = useSelector((state) => state.userInfo.user);
   const navigate = useNavigate();
   const userInput = useRef(null);
   const passwordInput = useRef(null);
@@ -12,19 +13,19 @@ const UserLogin = () => {
   const [usernameErr, setUsernameErr] = useState(null);
   const [passwordErr, setPasswordErr] = useState(null);
 
-  useEffect(() => {
-    if (usernameErr === "" && passwordErr === "") {
-      alert("Sign up successful!");
-    }
-  }, [usernameErr, passwordErr]);
+  // useEffect(() => {
+  //   if (usernameErr === "" && passwordErr === "") {
+  //     alert("Sign up successful!");
+  //   }
+  // }, [usernameErr, passwordErr]);
 
   useEffect(() => {
-    if(user.role === "admin"){
-      navigate("/admin/home")
-    }else if(user.role === "whistleblower"){
-      navigate("/home")
+    if (user.role === "admin") {
+      navigate("/admin/home");
+    } else if (user.role === "whistleblower") {
+      navigate("/home");
     }
-  }, [])
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +37,6 @@ const UserLogin = () => {
 
     //validation
     let error = false;
-
     if (username === "") {
       error = true;
       setUsernameErr("Please enter your name");
@@ -65,15 +65,15 @@ const UserLogin = () => {
 
         <div className="bg-white w-full my-4 md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
           <div className="w-full h-100">
-            <div className="text-6xl font-extrabold text-center text-blue">
-              CICCC
+            <div className="justify-center ml-auto flex mb-3">
+              <img src={Logo} alt="CICCC_Logo" className="w-20 h-20 " />
             </div>
-            <div className="text-3xl font-extrabold text-center  text-blue">
+            <div className="text-2xl font-extrabold text-center  text-blue">
               Whisleblowing App
             </div>
-            <h1 className="text-xl md:text-2xl leading-tight mt-6 text-center">
+            <h3 className="text-md font-bold leading-tight mt-6 text-left">
               Log in
-            </h1>
+            </h3>
 
             <form className="mt-6" onSubmit={handleSubmit}>
               <div>
@@ -87,7 +87,7 @@ const UserLogin = () => {
                 />
               </div>
               {usernameErr !== "" ? (
-                <p className="text-xs text-red-600">Enter user name</p>
+                <p className="text-xs text-red-600">{usernameErr}</p>
               ) : (
                 ""
               )}
@@ -103,7 +103,7 @@ const UserLogin = () => {
                 />
               </div>
               {passwordErr !== "" ? (
-                <p className="text-xs text-red-600">Enter password</p>
+                <p className="text-xs text-red-600">{passwordErr}</p>
               ) : (
                 ""
               )}
