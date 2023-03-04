@@ -8,13 +8,11 @@ const AdminAgentList = lazy(() => import('../Pages/Protected/AdminAgentList'))
 const AdminUserList = lazy(() => import('../Pages/Protected/AdminUserList'))
 
 export const ProtectedAdminRoutes = [
-    {path: "*", element: <MainLayout />, children: [
-        {path: "admin", element: <AdminProtectCheck />, children: [
-            {path: "admin/home", element: <AdminDashboard />},    
-            {path: "admin/reportlist", element: <AdminReportList />},
-            {path: "admin/agentlist", element: <AdminAgentList />},
-            {path: "admin/userlist", element: <AdminUserList />},
-        ]}
+    {path: "/admin", element: <MainLayout />, children: [
+        {path: "home", element: <AdminDashboard />},    
+        {path: "reportlist", element: <AdminReportList />},
+        {path: "agentlist", element: <AdminAgentList />},
+        {path: "userlist", element: <AdminUserList />},
     ]}
 ]
 
