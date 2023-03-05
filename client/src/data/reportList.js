@@ -14,6 +14,7 @@ export const reportList = [
         file: "",
         postedDate: "2023/03/01",
         updatedDate: "2023/03/03",
+        agent: "Iyo Todaka"
     },
     {
         _id: "45d56xe20989if4y",

@@ -1,11 +1,20 @@
-import React from 'react'
+import ReportTable from '../../Components/AdminHome/ReportTable'
+import FilterBtn from '../../Components/AdminHome/FilterBtn'
+
+import { useToggle } from '../../Components/AdminHome/Hooks/useToggle'
+import FilterModal from '../../Components/AdminHome/FilterModal'
 
 const AdminReportList = () => {
+  const [isOpen, setIsOpen] = useToggle()
+
   return (
-    <div className='flex justify-center'>AdminReportList</div>
+    <div className='flex flex-col mt-12 md:mt-5 p-2'>
+      <FilterBtn setIsOpen={setIsOpen} />
+      <ReportTable />
+      {isOpen && <FilterModal setIsOpen={setIsOpen}/>}
+    </div>
   )
 }
 
 export default AdminReportList
 
-//https://www.tailwindtoolbox.com/components/responsive-table

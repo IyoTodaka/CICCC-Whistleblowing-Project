@@ -1,12 +1,13 @@
-import React from 'react'
-import Dashboard from '../../Components/AdminHome/Dashboard'
+import Dashboard from "../../Components/AdminHome/Dashboard"
+
 
 const AdminDashboard = () => {
 
   return (
-    // <Dashboard />
+    <div className="mt-16">
+      <Dashboard />
+    </div>
 
-    <div className='flex justify-center'>Dashboard</div>
     )
 }
 

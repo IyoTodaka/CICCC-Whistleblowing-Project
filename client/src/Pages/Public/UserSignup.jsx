@@ -7,8 +7,10 @@ import {
   validatePassword,
   validateConfirmPassword,
 } from "../../util/validators";
+import { useSelector } from "react-redux";
 
 const UserSignup = () => {
+  const user = useSelector(state => state.userInfo.user)
   const navigate = useNavigate();
   const userInput = useRef(null);
   const passwordInput = useRef(null);
@@ -17,6 +19,14 @@ const UserSignup = () => {
   const [usernameErr, setUsernameErr] = useState(null);
   const [passwordErr, setPasswordErr] = useState(null);
   const [confirmPasswordErr, setConfirmPasswordErr] = useState(null);
+
+  useEffect(() => {
+    if (user.role === "admin") {
+      navigate("/admin/home");
+    } else if (user.role === "whistleblower") {
+      navigate("/home");
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
