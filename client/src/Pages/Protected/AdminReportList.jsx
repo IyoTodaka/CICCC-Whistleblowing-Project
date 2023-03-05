@@ -8,7 +8,7 @@ const AdminReportList = () => {
   const [isOpen, setIsOpen] = useToggle()
 
   return (
-    <div className='flex flex-col mt-12 md:mt-5 p-2'>
+    <div className='flex flex-col mt-12 md:mt-5 md:ml-40 p-2'>
       <FilterBtn setIsOpen={setIsOpen} />
       <ReportTable />
       {isOpen && <FilterModal setIsOpen={setIsOpen}/>}
