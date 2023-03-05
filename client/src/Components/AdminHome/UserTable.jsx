@@ -1,13 +1,15 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-import { agentList } from "../../data/agentList"
+import { userInfo } from '../../data/userInfo'
 import { upArrow, downArrow } from "../AdminHome/tableArrow"
 
-const AgentTable = () => {
+
+const UserTable = () => {
     const [idSort, setIdSort] = useState(false)
-    const [roleSort, setRoleSort] = useState(false)
+    const [departmentSort, setDepartmentSort] = useState(false)
     const [nameSort, setNameSort] = useState(false)
     const [createdSort, setCreatedSort] = useState(false)
+    const [lastPostedSort, setLastPostedSort] = useState(false)
 
     return (    
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
@@ -16,45 +18,54 @@ const AgentTable = () => {
                     <tr>
                         <th onClick={() => setIdSort(!idSort)} scope="col" className="px-3 py-2 md:py-3 w-40 hover:bg-gray-300">
                             <div className='flex items-center justify-center'>
-                                Agent ID
+                                User ID
                                 {idSort? upArrow: downArrow}
                             </div>
                         </th>
-                        <th onClick={() => setRoleSort(!roleSort)} scope="col" className="px-3 py-2  md:py-3 w-40 hover:bg-gray-300">
+                        <th onClick={() => setDepartmentSort(!departmentSort)} scope="col" className="px-3 py-2  md:py-3 w-40 hover:bg-gray-300">
                             <div className='flex items-center justify-center'>
-                                Role
-                                {roleSort? upArrow: downArrow}
+                                Department
+                                {departmentSort? upArrow: downArrow}
                             </div>                          
                         </th>
-                        <th onClick={() => setNameSort(!nameSort)} scope="col" className="px-3 py-2  md:py-3 w-40  hover:bg-gray-300">
+                        <th onClick={() => setNameSort(!nameSort)} scope="col" className="px-3 py-2  md:py-3 w-40 hover:bg-gray-300">
                             <div className='flex items-center justify-center'>
                                 Name
                                 {nameSort? upArrow: downArrow}
                             </div>
                         </th>
-                        <th onClick={() => setCreatedSort(!createdSort)} scope="col" className="px-3 py-2  md:py-3 w-40  hover:bg-gray-300">
+                        <th onClick={() => setCreatedSort(!createdSort)} scope="col" className="px-3 py-2  md:py-3 w-40 hover:bg-gray-300">
                             <div className='flex items-center justify-center'>
                                 Created
                                 {createdSort? upArrow: downArrow}
                             </div>                           
                         </th>
+                        <th onClick={() => setLastPostedSort(!lastPostedSort)} scope="col" className="px-3 py-2  md:py-3 w-40 hover:bg-gray-300">
+                            <div className='flex items-center justify-center'>
+                                Posted
+                                {lastPostedSort? upArrow: downArrow}
+                            </div>                           
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                {agentList.length > 0 && 
-                    agentList.map(eachAgent => (
-                        <tr className="bg-white border-b text-gray-900 text-center hover:bg-gray-100" key={eachAgent._id}>
+                {userInfo.length > 0 && 
+                    userInfo.map(eachUser => (
+                        <tr className="bg-white border-b text-gray-900 text-center hover:bg-gray-100" key={eachUser._id}>
                             <td scope="row" className="px-3 py-4 whitespace-nowrap overflow-hidden text-ellipsis">
-                                {eachAgent._id}
+                                {eachUser._id}
                             </td>
                             <td scope="row" className="px-3 py-4 whitespace-nowrap overflow-hidden text-ellipsis">
-                                {eachAgent.role}
+                                {eachUser.department}
                             </td>
                             <td scope="row" className="px-3 py-4 whitespace-nowrap overflow-hidden text-ellipsis">
-                                {eachAgent.name}
+                                {eachUser.username}
                             </td>
                             <td scope="row" className="px-3 py-4 whitespace-nowrap overflow-hidden text-ellipsis">
-                                {eachAgent.created}
+                                {eachUser.created}
+                            </td>
+                            <td scope="row" className="px-3 py-4 whitespace-nowrap overflow-hidden text-ellipsis">
+                                {eachUser.lastPosted}
                             </td>
                         </tr>
                 ))}
@@ -64,4 +75,4 @@ const AgentTable = () => {
     )
 }
 
-export default AgentTable
+export default UserTable
