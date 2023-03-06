@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import DatePicker from './DatePicker'
 
-const FilterModal = ({ setIsOpen }) => {
+const FilterModal = ({ setIsFilterOpen }) => {
   const [reportId, setReportId] = useState("")
   const [backlog, setBacklog] = useState(false)
   const [inProgress, setInProgress] = useState(false)
   const [closed, setClosed] = useState(false)
   const [updated, setUpdated] = useState(false)
-  const { close } = setIsOpen
+  const { close } = setIsFilterOpen
 
   const handleFilter = () => {
 
@@ -18,7 +18,7 @@ const FilterModal = ({ setIsOpen }) => {
         <div
             className="overlay absolute inset-0 z-0 bg-gray-600 opacity-80"
         ></div>
-        <div className="border-0 rounded-lg shadow-lg relative flex flex-col p-3 my-5 w-11/12 md:w-1/2 bg-white outline-none focus:outline-none md:px-8 md:py-6 overflow-y-scroll">
+        <div className="border-0 rounded-lg shadow-lg relative flex flex-col p-3 my-5 w-11/12 max-h-[calc(100vh-50px)] md:w-1/2 bg-white outline-none focus:outline-none md:px-8 md:py-6 overflow-y-scroll">
           <div className='flex justify-end'>
             <svg onClick={close} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mb-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

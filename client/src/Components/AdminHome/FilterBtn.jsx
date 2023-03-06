@@ -1,7 +1,7 @@
 import React from 'react'
 
-const FilterBtn = ({ setIsOpen }) => {
-    const { open, close, toggle } = setIsOpen
+const FilterBtn = ({ setIsFilterOpen }) => {
+    const { open, toggle } = setIsFilterOpen
 
     // const displayFilterModal = () => {
     //     setIsOpen()

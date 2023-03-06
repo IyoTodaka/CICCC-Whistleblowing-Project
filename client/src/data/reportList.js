@@ -31,5 +31,6 @@ export const reportList = [
         file: "",
         postedDate: "2023/02/21",
         updatedDate: "2023/03/01",
+        agent: "Hikari Kobe",
     },
 ]
