@@ -5,7 +5,7 @@ const {jwtSecret, salt} = require("../config")
 
 const agentSchema = new mongoose.Schema({
 
-    loginName:{
+    userName:{
         type: String,
         required:true,
         trim: true,

@@ -47,6 +47,10 @@ const reportSchema = new mongoose.Schema({
         type: String,
         required:true,
     },
+    histries:[{
+        type: Schema.Types.ObjectId,
+        ref:"Histry"
+    }],
    
    
 })
