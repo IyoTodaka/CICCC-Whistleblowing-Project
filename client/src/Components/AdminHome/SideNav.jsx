@@ -12,7 +12,7 @@ const SideNav = () => {
   return (
     <>    
         <aside id="default-sidebar" className="fixed top-0 left-0 z-40 w-40 h-screen hidden md:block" aria-label="Sidebar">
-            <div className="h-full px-2 py-4 flex flex-col justify-between border-r border-gray-400">
+            <div className="h-full px-2 py-4 flex flex-col justify-between shadow-2xl">
                 <div>
                     <div className='flex flex-col justify-center items-center mb-8 mt-5'>
                         <img src={Logo} alt="CICCC_Logo" className="w-12 h-12 mb-3"/>
@@ -46,7 +46,13 @@ const SideNav = () => {
                     </ul>
                 </div>
                 <div className='flex flex-col justify-center mb-10'>
-                    <p className='mb-5 text-center text-xl font-bold text-gray-600'>Iyo Todaka</p>
+                    <div className='flex items-center justify-center relative'>
+                        <p className='mb-5 text-center text-xl font-bold text-gray-600'>Iyo Todaka</p>
+                        <div className='w-6 h-6 rounded-xl bg-red-400 flex justify-center items-center absolute -top-4 -right-1'>
+                            <span className='text-white text-sm pt-0.5'>2</span>
+                        </div>                        
+                    </div>
+
                     <button type="button" className="flex justify-center py-1 text-gray-600 font-bold rounded-lg border-2 border-gray-300 transition duration-100 hover:bg-blue hover:text-white focus:outline-none">
                         <p>logout</p>
                     </button>

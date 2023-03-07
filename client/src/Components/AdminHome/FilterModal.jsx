@@ -20,7 +20,7 @@ const FilterModal = ({ setIsFilterOpen }) => {
         ></div>
         <div className="border-0 rounded-lg shadow-lg relative flex flex-col p-3 my-5 w-11/12 max-h-[calc(100vh-50px)] md:w-1/2 bg-white outline-none focus:outline-none md:px-8 md:py-6 overflow-y-scroll">
           <div className='flex justify-end'>
-            <svg onClick={close} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mb-3">
+            <svg onClick={close} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mb-3 cursor-pointer">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
@@ -42,21 +42,21 @@ const FilterModal = ({ setIsFilterOpen }) => {
             </label>
             <div className='flex flex-col'>
               <div className='flex items-center gap-6'>
-                <label className="block text-gray-700 text-sm md:text-lg font-bold flex items-center">
+                <label className="cursor-pointer block text-gray-700 text-sm md:text-lg font-bold flex items-center">
                     <input type="checkbox" value={backlog} onChange={() => setBacklog(backlog)} className="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     Backlog
                 </label>
-                <label className="block text-gray-700 text-sm md:text-lg font-bold flex items-center">
+                <label className="cursor-pointer block text-gray-700 text-sm md:text-lg font-bold flex items-center">
                     <input type="checkbox" value={inProgress} onChange={() => setInProgress(inProgress)} className="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     In Progress
                 </label>
-                <label className="block text-gray-700 text-sm md:text-lg font-bold flex items-center">
+                <label className="cursor-pointer block text-gray-700 text-sm md:text-lg font-bold flex items-center">
                     <input type="checkbox" value={closed} onChange={() => setClosed(closed)} className="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     Closed
                 </label>
               </div>              
               <div className='flex items-center gap-6 mt-3'>
-                <label className="block text-gray-700 text-sm md:text-lg font-bold flex items-center">
+                <label className="cursor-pointer block text-gray-700 text-sm md:text-lg font-bold flex items-center">
                     <input type="checkbox" value={updated} onChange={() => setUpdated(updated)} className="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     Updated
                 </label>              

@@ -11,7 +11,17 @@ const HamburgerMenu = () => {
 
   return (
     <>  
-        <div className='text-lg text-gray-600 p-3 fixed top-2 left-2 font-bold'>Admin</div>
+        <div className='flex items-center ml-4 mt-2'>
+            <div className='text-lg text-gray-600 p-3 font-bold'>Iyo Todaka</div>
+            <div className='flex items-center relative'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-600">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                </svg>
+                <div className='w-4 h-4 rounded-xl bg-red-400 flex justify-center items-center absolute -top-2 -right-2'>
+                    <span className='text-white text-xs pt-0.5'>2</span>
+                </div>
+            </div>
+        </div>
         <button onClick={() => setIsOpen(!isOpen)} data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="fixed top-2 right-2 inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden transition duration-100 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
         {isOpen 
             ?   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
