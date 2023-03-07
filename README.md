@@ -1,5 +1,7 @@
 # CICCC-Whistleblowing-Project
 
+# To Development Team Members
+Although there may be a conflict when you do a pull/push, please select Accept Both Changes instead of deleting the other party's code.
 
 # How to install
 All instructions should be done in the root directory.  
