@@ -19,3 +19,10 @@ All instructions should be done in the root directory.
     ```
     npm start
     ```  
+
+1st time to push your branch
+git push origin {your branch name}
+
+after 2nd time to push your branch
+git add .
+git push .
