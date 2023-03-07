@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const {jwtSecret, salt} = require("../config")
 
 
-const adminSchema = new mongoose.Schema({
+const agentSchema = new mongoose.Schema({
 
     loginName:{
         type: String,
@@ -29,11 +29,11 @@ const adminSchema = new mongoose.Schema({
 })
 
 
-adminSchema.pre("save", async function(next){
+agentSchema.pre("save", async function(next){
     const hash = await bcrypt.hash(this.password, salt)
     this.password = hash
     next()
 })
 
 
-module.exports = mongoose.model("Admin" , adminSchema);
+module.exports = mongoose.model("Agent" , agentSchema);
