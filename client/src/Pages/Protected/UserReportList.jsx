@@ -1,17 +1,17 @@
 import React from "react";
 import Nav from "../../Components/UserHome/Nav";
 import Wrapper from "../../Components/UserHome/Layout";
-import CreateMain from "../../Components/UserHome/CreateMain";
+import ReportMain from "../../Components/UserHome/ReportMain";
 
-const UserHome = () => {
+const UserReportList = () => {
   return (
     <>
       <Nav />
       <Wrapper>
-        <CreateMain />
+        <ReportMain />
       </Wrapper>
     </>
   );
 };
 
-export default UserHome;
+export default UserReportList;
