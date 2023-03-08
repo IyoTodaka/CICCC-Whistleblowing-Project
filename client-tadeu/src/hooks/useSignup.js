@@ -8,7 +8,7 @@ export const useSignup = () =>{
     const {dispatch} = useAuthContext()
 
  
-    const signup = async (username,password,realname,department) =>{
+    const signup = async (username,password) =>{
         setIsLoading(true)
         setError(null)
 
@@ -18,7 +18,7 @@ export const useSignup = () =>{
 
         Axios.defaults.baseURL='http://localhost:8000'
 
-        Axios.post('api/user/signup',{username,password,realname,department},{headers:{'Content-Type':'application/json'}}).then((response)=>{
+        Axios.post('api/user/signup',{username,password},{headers:{'Content-Type':'application/json'}}).then((response)=>{
            
             localStorage.setItem('user',JSON.stringify(response.data))
             // update auth context

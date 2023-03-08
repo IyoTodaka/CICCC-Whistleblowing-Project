@@ -13,20 +13,20 @@ const userSchema = new Schema({
         type:String,
         require:true
     },
-    realname:{
-        type:String
-    },
-    department:{
-        type:String
-    },
-    flagtype:{
+    // realname:{
+    //     type:String
+    // },
+    // department:{
+    //     type:String
+    // },
+    flagType:{
         type:String,
-        default:"user"
+        default:"whistleblower"
     }
 
 })
 
-userSchema.statics.signup = async function (username,password,realname,department) {
+userSchema.statics.signup = async function (username,password) {
 
     if (!username || !password){
         throw Error("Username and password must be filled")
@@ -49,7 +49,8 @@ userSchema.statics.signup = async function (username,password,realname,departmen
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password,salt)
    
-    const user = await this.create({username,password:hash,realname,department})
+    // const user = await this.create({username,password:hash,realname,department})
+    const user = await this.create({username,password:hash})
 
     return user
 }

@@ -9,14 +9,14 @@ import {useSignup} from '../hooks/useSignup';
 export default function Signup () {
     const [username,setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [realname, setRealname] = useState('')
-    const [department, setDepartment] = useState('')
+    // const [realname, setRealname] = useState('')
+    // const [department, setDepartment] = useState('')
     const {signup,isLoading,error} = useSignup()
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        await signup (username,password,realname,department)
-
+        await signup (username,password)
+        // await signup (username,password,realname,department)
 
     }
 
@@ -45,14 +45,14 @@ export default function Signup () {
                                 <label>Password</label>
                                 <input type="password" required onChange={(e)=>setPassword(e.target.value)}></input>
                             </div>
-                            <div className="data">
+                            {/* <div className="data">
                                 <label>Name</label>
                                 <input type="text"  onChange={(e)=>setRealname(e.target.value)}></input>
                             </div>
                             <div className="data">
                                 <label>Department</label>
                                 <input type="text" onChange={(e)=>setDepartment(e.target.value)}></input>
-                            </div>
+                            </div> */}
                             <div className="forgot-pass">
                                 <a href="#">Forgot Password?</a>
                             </div>
